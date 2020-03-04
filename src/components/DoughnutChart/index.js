@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from '@rebass/grid'
-import { Pie, PieChart, Label, ResponsiveContainer, Cell } from 'recharts'
+import { Pie, PieChart, Label, ResponsiveContainer, Cell, Tooltip } from 'recharts'
 
 const Title = styled.div`
   font-weight: bold;
@@ -34,6 +34,7 @@ const DoughnutChart = ({ data, title, ...props }) => {
             ))}
             <Label position="center">{total}</Label>
           </Pie>
+          <Tooltip />
         </PieChart>
       </ResponsiveContainer>
     </Flex>

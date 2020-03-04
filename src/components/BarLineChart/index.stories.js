@@ -4,6 +4,7 @@ import BarLineChart from '.'
 
 const barDataSet = [
   {
+    name: 'bar dataSet',
     data: [
       { name: 'A', value: 150 },
       { name: 'B', value: 50 },
@@ -21,6 +22,7 @@ const barDataSet = [
 
 const lineDataSet = [
   {
+    name: 'line dataSet',
     type: 'line',
     data: [
       { name: 'A', value: 150 },
@@ -39,6 +41,7 @@ const lineDataSet = [
 
 const mixedDataSets = [
   {
+    name: 'Set 0',
     type: 'bar',
     axis: 0,
     color: '#0000FF',
@@ -56,6 +59,7 @@ const mixedDataSets = [
     ]
   },
   {
+    name: 'Set 1',
     type: 'line',
     axis: 1,
     color: '#FF0000',
@@ -84,7 +88,10 @@ storiesOf('BarLineChart', module)
   .add('multiple', () => (
     <BarLineChart dataSets={mixedDataSets} />
   ))
+  .add('legend & labels', () => (
+    <BarLineChart dataSets={mixedDataSets} axisLabels={{ y0: 'Inventory Level', y1: 'Days of Inventory' }} enableLegend />
+  )) 
   .add('vertical', () => (
-    <BarLineChart dataSets={mixedDataSets} layout="vertical" />
+    <BarLineChart dataSets={mixedDataSets} layout="vertical" axisLabels={{ x1: 'Inventory Level', x0: 'Days of Inventory' }} />
   ))
 
