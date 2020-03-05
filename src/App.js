@@ -49,7 +49,7 @@ class App extends React.Component {
     this.setState({ avgLeadTimeDataSet: dataSets })
   }
 
-  componentDidMount() {
+  loadDataFromApi = () => {
     setTimeout(() => {
       this.setPurchaseOrders(purchaseOrders)
       this.setOutboundShipments(outboundShipments)
@@ -58,6 +58,14 @@ class App extends React.Component {
       this.setInventoryDataSets(inventoryDataSets)
       this.setAvgLeadTimeDataSet(avgLeadTimeDataSet)
     }, 1000)
+  }
+
+  componentDidMount() {
+    this.loadDataFromApi()
+    setInterval(() => {
+      console.log('reload data from api')
+      this.loadDataFromApi()
+    }, 1800000)
   }
 
   render() {
